@@ -1,12 +1,12 @@
 # Sesión AAAA-MM-DD — <tema en pocas palabras>
 
-**Project:** "{{PROJECT_CLAUDE}}" · **Con:** {{LIDER}} · **BITACORA al iniciar:** "Última actualización: …"
+**Project:** "{{PROJECT_CLAUDE}}" · **Con:** {{LIDER}} · **BITACORA al iniciar:** "Última actualización: …" · **Cierre anterior:** `<hash>`
 
 Archivo write-once: `docs/bitacora/AAMMDD_sesion.md` (segunda del día: `AAMMDD_2_sesion.md`).
 Lo escribe el Project en el cierre; no se corrige después (una corrección va en la sesión siguiente).
 
 ## Inicio
-- Verificación del Knowledge: coincidió | no coincidió y se pidió <qué>.
+- Verificación del Knowledge: coincidió | no coincidió y se pidió «Sync now» o <qué>.
 - Qué trajo {{LIDER}}.
 
 ## Qué se hizo

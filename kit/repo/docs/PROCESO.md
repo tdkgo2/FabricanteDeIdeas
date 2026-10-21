@@ -1,6 +1,6 @@
 # PROCESO — cómo se trabaja en {{NOMBRE}}
 
-Versión 2.0 del kit de proyecto ({{FECHA}}). Origen: el modelo Project ⇄ Claude Code ⇄ decisor
+Versión 2.1 del kit de proyecto ({{FECHA}}). Origen: el modelo Project ⇄ Claude Code ⇄ decisor
 que se usó en Trama (CdL_Trama, septiembre–octubre 2026), con lo que se aprendió ahí ya incorporado.
 Este documento cambia poco; lo que cambia cada semana vive en `docs/BITACORA.md`.
 
@@ -21,7 +21,7 @@ Este documento cambia poco; lo que cambia cada semana vive en `docs/BITACORA.md`
 3. {{LIDER}} en Code      → "ejecuta T-NNN"
 4. Code: FASE 0 (mide)    → desviación: STOP y pregunta · sin desviación: trabaja en feature/T-NNN
 5. Code: cierre           → docs/cierres/T-NNN_fecha.md, fila de "Estado de trabajos", push de la rama. ESPERA.
-6. {{LIDER}} → Project    → chat nuevo: "revisa el cierre de T-NNN" (pega el cierre o lo sube)
+6. {{LIDER}} → Project    → chat nuevo: "revisa el cierre de T-NNN" (pega el cierre: vive en la rama)
 7. Project                → "listo para merge" / "desviación N: decide X" / "necesita dogrywka"
 8. {{LIDER}} prueba       → en la web de prueba, antes del merge
 9. {{LIDER}} fusiona      → desde ~/{{RUTA}}_main (ver §5)
@@ -97,6 +97,9 @@ Lecciones de Trama que aquí son requisito desde el día 1, no consecuencia de u
 4. **Postgres registra toda escritura** (`log_statement=mod`, con base y usuario en el prefijo): así se
    mide "0 escrituras de la sesión" en vez de suponerlo.
 5. **Respaldo dos veces al día, verificado, con copia fuera del equipo** antes del primer dato real.
+   Y una **restauración de prueba programada** (p. ej. semanal): el último respaldo se restaura en una
+   base temporal, se comparan conteos de filas contra la original y la temporal se borra. Un respaldo
+   que nunca se restauró no está probado (Trama solo validaba el índice del dump y nunca lo agendó).
 6. **Todo target que escribe imprime la base** antes de actuar; `include .env` del Makefile pisa
    variables exportadas en la shell (incidente de Trama).
 
@@ -124,19 +127,28 @@ Lecciones de Trama que aquí son requisito desde el día 1, no consecuencia de u
 - La BITACORA nombra en su encabezado la última sesión; el inicio de sesión del Project compara las dos.
 - Ningún entregable importante sale con `[?]` o preguntas abiertas: el Project pide antes el dato.
 
-## 10. Knowledge del Project (copia manual; la fuente de verdad es git)
-- **Se reemplazan en cada cierre:** `BITACORA.md`, la sesión más reciente (la anterior sale del
-  Knowledge; sigue en git), `INDICE_ADR.md` y `CLAUDE.md` si cambiaron. Tras cada merge, el
-  `CLAUDE.md` de `main` (Code edita su "Estado de trabajos").
-- **Se suben una vez:** cada ADR nuevo, los maestros vigentes (al cambiar de versión, sale el anterior),
-  `PROCESO.md`, las plantillas y la tarea viva.
-- **Lo que vive en una rama** (cierre de Code antes del merge) se trae pegado o por `scp`.
+## 10. Knowledge del Project (fuente de GitHub; la fuente de verdad es git)
+- **Una sola fuente:** la sincronización de GitHub del Project, rama `main`, con `CLAUDE.md` y `docs/`
+  seleccionados. Nada de código ni datos. Lo nuevo dentro de `docs/` (sesiones, ADR, tareas, cierres
+  fusionados) entra solo al sincronizar.
+- **No se actualiza sola.** Solo con «Sync now». Es el **último paso de cada cierre**, después del push
+  de `main`, y el Project termina cada cierre recordándolo. (Trama: la copia estuvo 13 días atrasada
+  sin que nadie lo notara.)
+- **Nada subido a mano** de lo que está en git: con dos copias del mismo archivo, la búsqueda del
+  Project mezcla versiones. Sueltos solo quedan archivos que no viven en git (p. ej. un Excel).
+  Si un proyecto decide que su Project escriba la BITACORA directo en el Knowledge, lo anota como
+  decisión vigente con la regla de cuál copia rige.
+- **Al iniciar sesión** el Project compara la BITACORA del Knowledge con el último cierre que menciona
+  el líder (fecha y hash). Si es más vieja, o hay dos BITACORA, se detiene y pide «Sync now».
+- **Lo que vive en una rama** (cierre de Code antes del merge) no está en `main`: se trae pegado.
+- **Plan B:** si la sincronización desaparece (Trama, 06-10), se quita la fuente y se suben los
+  archivos a mano. Nunca las dos cosas a la vez.
 - Si el Knowledge no basta, el Project puede clonar el repo en solo lectura (ver §6, fuera del dispositivo).
 
 ## 11. Cierre de sesión del Project
 Lista de pasos y comandos: `docs/CIERRE_SESION.md`. En corto: el Project entrega archivos completos
 (nunca "pega esto en la sección X"), nunca reconstruye la BITACORA de memoria, lista todo archivo tocado
-en el `scp`, recuerda cerrar las sesiones de Code de este proyecto, y el último paso es el Knowledge.
+en el `scp`, recuerda cerrar las sesiones de Code de este proyecto, y el último paso es «Sync now».
 
 ## 12. Glosario
 **Tarea**: instrucción para Code con FASE 0, fases, puertas y cierre. **Cierre**: reporte write-once de

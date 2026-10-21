@@ -13,14 +13,15 @@ Reglas completas: `docs/PROCESO.md` §9.
 **Proyecto**
 - Nombre: **{{NOMBRE}}** ({{DESCRIPCION_CORTA}}). Repo privado `{{CUENTA_GITHUB}}/{{REPO}}`. Carpeta en {{DISPOSITIVO}}: `~/{{RUTA}}` (Code) y `~/{{RUTA}}_main` (worktree de `main`). Paquete / slug: `{{SLUG}}`.
 - Project de claude.ai: "{{PROJECT_CLAUDE}}". Revisor: {{REVISOR}}.
-- Proceso: `docs/PROCESO.md` v2.0 (kit de proyecto). Cierre: `docs/CIERRE_SESION.md`.
+- Proceso: `docs/PROCESO.md` v2.1 (kit de proyecto). Cierre: `docs/CIERRE_SESION.md`.
 
 **Documentos que mandan**
 - Maestros: ninguno todavía.
 - ADR: ninguno todavía. Índice: `docs/adr/INDICE_ADR.md`.
 
 **Decisiones vigentes sin ADR** (una línea cada una, con fecha)
-- {{FECHA}}: el proyecto arranca con el kit de proyecto v2.0 (origen: Trama).
+- {{FECHA}}: el proyecto arranca con el kit de proyecto v2.1 (origen: Trama).
+- {{FECHA}}: Knowledge por la fuente de GitHub (`CLAUDE.md` y `docs/` de `main`); «Sync now» es el último paso de cada cierre.
 
 **Archivos de datos**: registro en `docs/datos/REGISTRO_DATOS.md`. Ninguno todavía.
 

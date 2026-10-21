@@ -1,0 +1,30 @@
+Traspaso desde Fabricante de Ideas — {{NOMBRE}}
+
+Este Project coordina {{NOMBRE}} ({{DESCRIPCION_CORTA}}). El proyecto nació el {{FECHA}} con el kit de
+proyecto v2.1. Desde este mensaje es tuyo: Fabricante de Ideas no vuelve a tocarlo y solo recibe lo
+que el proyecto enseñe para el kit.
+
+DATOS
+- Repo privado {{CUENTA_GITHUB}}/{{REPO}}. En {{DISPOSITIVO}} ({{USUARIO_DISPOSITIVO}}@{{IP_LAN}}):
+  ~/{{RUTA}} (árbol de Claude Code) y ~/{{RUTA}}_main (worktree de main, para los commits de {{LIDER}}).
+- Slug {{SLUG}}: guardián en ~/.{{SLUG}}/guardian/, sesión tmux cc_{{SLUG}}.
+- Knowledge: fuente de GitHub, rama main, CLAUDE.md y docs/. Nada subido a mano. «Sync now» es el
+  último paso de cada cierre; al iniciar, si la BITACORA del Knowledge es más vieja que el último
+  cierre, te detienes y pides «Sync now».
+- Descargas de {{LIDER}}: {{DESCARGAS}}
+
+LO PRIMERO
+1. Verificación de inicio: BITACORA y sesión de arranque ({{AAMMDD}}_sesion.md).
+2. Primeros ADR (docs/GUIA_DIA_0.md §J), a partir de la investigación previa
+   (docs/proyecto/INVESTIGACION_PREVIA.md, si se subió en el paso C).
+3. Con ellos, las secciones [LLENAR de CLAUDE.md, y después T-001.
+4. Al cerrar esta primera sesión, la BITACORA §2 pasa a "Hecho" los pasos del día 0 de abajo.
+
+RESULTADOS DEL DÍA 0
+- Primer commit de main: [DÍA 0]
+- make test-guardian: [DÍA 0]
+- make verificar-guardian: [DÍA 0]
+- Prueba de Claude Code (paso E): [DÍA 0]
+- Servicios del equipo revisados o apagados (paso B): [DÍA 0]
+- Decisiones tomadas en el día 0: [DÍA 0]
+- Pendientes del día 0: [DÍA 0]

@@ -20,13 +20,15 @@ Archivos **completos**, listos para reemplazar, como descargables. Nunca "pega e
 - Trabajó sobre el archivo completo y actual. Si no lo tiene, lo pide; **nunca reconstruye la
   BITACORA de memoria**. Versión real: `cd ~/{{RUTA}}_main && git pull && head -3 docs/BITACORA.md`.
 - Ningún `[?]` ni pregunta abierta en lo que entrega.
+- La sesión nueva anota el hash del commit del cierre anterior (el que {{LIDER}} dio al iniciar).
 - La BITACORA cabe en 30 KB; lo resuelto salió a la sesión o a un ADR.
 - Todo archivo tocado en la sesión está en la tabla y en los comandos de abajo.
 
 ## 2. Pasos de {{LIDER}}
 
 ### Paso 1 — Descargar
-Todo a `{{DESCARGAS}}`. Si el navegador agrega `(1)` al nombre, renómbralo antes de copiar.
+Todo a `{{DESCARGAS}}`, la carpeta de este proyecto. Si el navegador agrega `(1)` al nombre,
+renómbralo antes de copiar.
 
 ### Paso 2 — Poner `main` al día en el dispositivo (terminal SSH)
 ```bash
@@ -66,10 +68,10 @@ otros proyectos, si las hay. No uses `pkill -f -- '--sdk-url'`: cierra las de to
 ls ~/{{RUTA}}/.claude/              # no debe haber ningún *_OK
 ```
 
-### Paso 7 — Knowledge del Project (siempre el último)
-- Reemplaza `BITACORA.md`.
-- Quita la sesión anterior y sube la nueva (`AAMMDD_sesion.md`).
-- Si cambiaron: `CLAUDE.md`, `INDICE_ADR.md`. Sube los ADR nuevos y la tarea nueva.
-- Si hubo merge: sube el `CLAUDE.md` de `main` (Code editó su "Estado de trabajos").
+### Paso 7 — «Sync now» (siempre el último)
+En el Project: Knowledge → fuente de GitHub `{{CUENTA_GITHUB}}/{{REPO}}` → **Sync now**.
+No se sube nada a mano: todo lo del paso 4 (y lo que Code fusionó) llega por la fuente.
+La sincronización no se actualiza sola; sin este paso, el Project trabaja sobre el cierre anterior.
 
-La sesión siguiente empieza comprobando que el Knowledge diga lo mismo que este cierre.
+La sesión siguiente empieza comprobando que la BITACORA del Knowledge diga lo mismo que este cierre
+(fecha y hash). Si no, pide «Sync now» y se detiene.

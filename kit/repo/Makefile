@@ -54,6 +54,8 @@ cerrar-code:         ## cierra las sesiones de Claude Code de ESTE proyecto (no 
 # Parte 2 — stack. La agrega T-001. Mínimo exigido (docs/PROCESO.md §Bases de datos):
 #   test       pytest SOLO contra la base de pruebas; la guarda sale sin conectar si no lo es
 #   backup     respaldo de las bases con datos reales, verificado, con copia fuera del equipo
+#   restaurar-prueba  restaura el último respaldo en una base temporal, compara conteos y la borra
+#              (programado, p. ej. semanal: docs/PROCESO.md §7)
 #   migrate    respalda antes si la base es de producción
 #   downgrade  exige y consume DESTRUCTIVO_OK; se niega sobre bases con datos reales
 #   web-prueba levanta la web de prueba contra la base de prueba (para el revisor y el humo)
