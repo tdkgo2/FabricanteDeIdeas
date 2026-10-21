@@ -1,0 +1,7 @@
+# Valores llenos de un proyecto (los del kit son ejemplo; los reales viven en el Pi del proyecto)
+valores.env
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

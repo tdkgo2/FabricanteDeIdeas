@@ -1,0 +1,24 @@
+# Datos reales: NUNCA a git (viven en data/ del dispositivo y en la laptop del líder)
+data/*
+!data/README.md
+backups/
+pgdata/
+*.dump
+*.sql.gz
+# Secretos
+.env
+.env.*
+!.env*.example
+*.pem
+*.key
+# Python
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# Claude Code: banderas de un solo uso y ajustes locales
+.claude/*_OK
+.claude/settings.local.json
